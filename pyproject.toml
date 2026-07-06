@@ -1,0 +1,19 @@
+[project]
+name = "lobbyregisterwatch"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "dotenv>=0.9.9",
+    "google>=3.0.0",
+    "google-cloud-storage>=3.12.0",
+    "pandas>=3.0.3",
+    "requests>=2.34.2",
+]
+
+[dependency-groups]
+dev = [
+	"pytest>=8.0",
+	"pytest-mock>=3.14",
+]
