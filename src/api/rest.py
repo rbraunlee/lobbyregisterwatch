@@ -5,7 +5,7 @@ def call_lr(base_url, endpoint, params, header):
     while True:
         response = requests.get(urljoin(base_url, endpoint), params=params, headers = header)
         response.raise_for_status()
-        tmp = response.json()["results"]
+        tmp = response.json()
 
         yield tmp["results"]
 

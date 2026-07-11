@@ -29,12 +29,18 @@ def authenticate_implicit_with_adc(project_id: str = "lobbyregisterwatch") -> No
 
 
 def upload_blob(bucket_name, source_string, destination_blob_name, project_id):
-  """Uploads a file to the bucket."""
-  storage_client = storage.Client(project_id)
-  bucket = storage_client.get_bucket(bucket_name)
-  blob = bucket.blob(destination_blob_name)
 
-  blob.upload_from_string(source_string)
+    """Uploads a file to the bucket."""
+    try:
+        storage_client = storage.Client(project_id)
+        bucket = storage_client.get_bucket(bucket_name)
+        blob = bucket.blob(destination_blob_name)
+        blob.upload_from_string(source_string)
+    except Exception as e:
+        print(e)
+
+
+    
 
 def download_blob(bucket_name, blob_name, project_id):
     storage_client = storage.Client(project_id)
@@ -42,7 +48,7 @@ def download_blob(bucket_name, blob_name, project_id):
     blob = bucket.blob(blob_name)
     try:
         return blob.download_as_string()
-    except exceptions.NotFound:
-        return None
+    # except exceptions.NotFound:
+    #     return None
     except Exception as e:
-        raise e
+        print(e)
