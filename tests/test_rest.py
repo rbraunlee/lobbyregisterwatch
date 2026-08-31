@@ -8,7 +8,7 @@ class TestGetCall:
     def test_call_lr_no_cursor(self, mock_get):
         mock_response1 = MagicMock()
         mock_response1.json.return_value = {
-            "results": {"results": [{"id": 1}], "cursor": ""}
+            "results": [{"id": 1}], "cursor": ""
 
             }
         mock_get.return_value = mock_response1
@@ -21,15 +21,16 @@ class TestGetCall:
     def test_call_lr_pagination(self, mock_get):
         mock_response1 = MagicMock()
         mock_response1.json.return_value = {
-            "results": {"results": [{"id": 1}], "cursor": "abc"}
-        }
+                "results": [{"id": 1}], "cursor": "abc"
+                }
+        
         mock_response2 = MagicMock()
         mock_response2.json.return_value = {
-            "results": {"results": [{"id": 2}], "cursor": "bcd"}
+            "results": [{"id": 2}], "cursor": "bcd"
         }
         mock_response3 = MagicMock()
         mock_response3.json.return_value = {
-            "results": {"results": [{"id": 3}], "cursor": "bcd"}
+            "results": [{"id": 3}], "cursor": "bcd"
         }
         mock_get.side_effect = [mock_response1, mock_response2, mock_response3]
 
