@@ -8,3 +8,4 @@ __pycache__/
 data/
 .env
 docs/
+json_string.json
