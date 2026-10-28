@@ -18,7 +18,7 @@ def second_json():
 
 @pytest.fixture
 def listj():
-    return '{ "key_one":"[value1, value2, value3]"}'
+    return '{ "key_one":["value1", "value2", "value3"]}'
 
 
 @pytest.fixture
@@ -29,7 +29,7 @@ def listj_result_df():
 
 @pytest.fixture
 def dictj():
-    return '{"key_one":"{key_j1:value1, key_j2:value2, key_j3:value3}"}'
+    return '{"key_one":{ "key_j1" :"value1", "key_j2":"value2", "key_j3":"value3"}}'
 
 
 @pytest.fixture
@@ -42,7 +42,7 @@ def dictj_result_df():
 
 @pytest.fixture
 def dict_listj():
-    return '{"key_one":{"key_list":"{key_j1:hi, key_j2:[value1, value2, value3], key_j3:by}"}}'
+    return '{"key_one":{"key_list":{"key_j1":"hi", "key_j2":["value1", "value2", "value3"], "key_j3":"by"}}}'
 
 
 @pytest.fixture
