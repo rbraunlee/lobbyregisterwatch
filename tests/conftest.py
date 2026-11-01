@@ -17,19 +17,19 @@ def second_json():
 
 
 @pytest.fixture
-def listj():
-    return '{ "key_one":["value1", "value2", "value3"]}'
+def list_df():
+    return pd.DataFrame(data={"key_one": ["[value1, value2, value3]"]})
 
 
 @pytest.fixture
-def listj_result_df():
+def list_df_result_df():
 
     return pd.DataFrame({"key_one": ["value1", "value2", "value3"]})
 
 
 @pytest.fixture
 def dictj():
-    return '{"key_one":{ "key_j1" :"value1", "key_j2":"value2", "key_j3":"value3"}}'
+    return pd.DataFrame({"key_one": {"key_j1": "value1", "key_j2": "value2", "key_j3": "value3"}})
 
 
 @pytest.fixture
@@ -41,12 +41,25 @@ def dictj_result_df():
 
 
 @pytest.fixture
-def dict_listj():
-    return '{"key_one":{"key_list":{"key_j1":"hi", "key_j2":["value1", "value2", "value3"], "key_j3":"by"}}}'
+def dict_list_df():
+    return pd.DataFrame(
+        {
+            "key_one": {
+                "key_list": {
+                    "key_j1": "hi",
+                    "key_j2": ["value1", "value2", "value3"],
+                    "key_j3": "by",
+                }
+            }
+        }
+    )
+
+
+l
 
 
 @pytest.fixture
-def dict_listj_result_df():
+def dict_list_df_result_df():
 
     return pd.DataFrame(
         {
