@@ -18,13 +18,24 @@ def second_json():
 
 @pytest.fixture
 def list_df():
-    return pd.DataFrame(data={"key_one": ["[value1, value2, value3]"]})
+    return pd.DataFrame(data={"key_one": [["value1", "value2", "value3"]]})
+
+
+@pytest.fixture
+def mix_list_df():
+    return pd.DataFrame(data={"key_one": [["value1", None, "value3"], "value"]})
 
 
 @pytest.fixture
 def list_df_result_df():
 
     return pd.DataFrame({"key_one": ["value1", "value2", "value3"]})
+
+
+@pytest.fixture
+def mix_list_df_result_df():
+
+    return pd.DataFrame({"key_one": ["value1", None, "value3", "value"]})
 
 
 @pytest.fixture
@@ -53,9 +64,6 @@ def dict_list_df():
             }
         }
     )
-
-
-l
 
 
 @pytest.fixture
